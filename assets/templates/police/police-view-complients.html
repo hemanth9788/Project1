@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static  %}
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Blockchain - Police Complaints</title>
+  <!-- base:css -->
+  <link rel="stylesheet" href="{% static 'police/vendors/mdi/css/materialdesignicons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'police/vendors/css/vendor.bundle.base.css' %}">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'police/css/style.css' %}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="{% static 'police/images/favicon.png' %}" />
+</head>
+<body>
+  <div class="container-scroller d-flex">
+    <!-- partial:./partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item sidebar-category">
+          <span></span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'police_dashboard' %}">
+            <img src="https://img.icons8.com/stickers/25/null/dashboard-layout.png"/>&nbsp;&nbsp;&nbsp;
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'view_complient' %}">
+            <img src="https://img.icons8.com/fluency/25/null/vision.png"/>&nbsp;&nbsp;&nbsp;
+            <span class="menu-title">View Complaints</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'update_complient' %}">
+            <img src="https://img.icons8.com/fluency/25/null/approve-and-update.png"/>&nbsp;&nbsp;&nbsp;
+            <span class="menu-title">Update Complaints</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'all_complaints' %}">
+            <img src="https://img.icons8.com/external-sbts2018-outline-color-sbts2018/28/null/external-all-basic-ui-elements-2.3-sbts2018-outline-color-sbts2018.png"/>&nbsp;&nbsp;&nbsp;
+            <span class="menu-title">All Complaints</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'view_feedback' %}">
+            <img src="https://img.icons8.com/color/28/null/satisfied.png"/>&nbsp;&nbsp;&nbsp;
+            <span class="menu-title">View Feedback</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:./partials/_navbar.html -->
+      <nav class="navbar col-lg-12 col-12 px-0 py-0 py-lg-4 d-flex flex-row">
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+          </button>
+          <div class="navbar-brand-wrapper">
+            <a class="navbar-brand brand-logo" href="#"><img src="{% static 'police/images/admin.png'%}" alt="logo"/></a>
+            {% comment %} <a class="navbar-brand brand-logo-mini" href="#"><img src="{% static 'police/images/logo-mini.svg'%}" alt="logo"/></a> {% endcomment %}
+          </div>
+          <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">Welcome back &nbsp; Admin</h4>
+          <ul class="navbar-nav navbar-nav-right">
+            
+            
+            <li class="nav-item dropdown mr-2">
+              <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
+                <i class="mdi mdi-export mx-0"></i>
+                <div class="font-weight-normal">
+                  <a href="{% url 'index' %}" style="font-weight:bolder ; font-size: medium; color:white;" >&nbsp; LogOut</a>
+                </div>
+              </a>
+              
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+        
+      </nav>   
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                 <center> <h1 class="card-title" >Complaints</h1></center>
+                  
+                  <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                      <thead>
+                        
+                        <tr>
+                          <th>
+                            <b>Suspect Name</b>
+                          </th>
+                          <th>
+                            <b>Complaint Type</b>
+                          </th>
+                          <th>
+                            <b>Approximate</b>
+                          </th>
+                          <th>
+                            <b>Occured date</b>
+                          </th>
+                          <th>
+                            <b>View Eevidence</b>
+                          </th>
+                          <th>
+                            <b>Verify Complaint</b>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in a %}
+                        <tr>
+                          <td>
+                            {{i.suspect_name}}
+                          </td>
+                          <td>
+                            {{i.Complaint_type}}
+                          </td>
+                          <td>
+                           {{i.Approx_date}}
+                          </td>
+                          <td>
+                            {{i.occured_place}}
+                          </td>
+                          <td>
+                            <a href="{{i.Evidence.url}}" target="_blank" View>{{i.Evidence}}</a>
+                          </td>
+                          
+                          <td>
+                            <a href="{% url "register" i.complaint_id %}"><button type="submit" class="btn btn-primary">Verify</button></a>
+                            <a href="{% url "discard" i.complaint_id %}"><button type="submit" class="btn btn-danger">Discard</button></a>
+
+                          </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                    <br>
+                                  <br>   
+                                      <nav aria-label="Page navigation example">
+                                        <ul class="pagination">
+                                          {% if a.has_previous %}
+                                          <li class="page-item">
+                                          <a class="page-link" href="?page={{ a.previous_page_number }}">Previous</a></li>
+                                          {% endif %}
+                                          <li class="page-item">
+                                          {% for num in a.paginator.page_range %}
+                                          {% if num == a.number %}
+                                       
+                                          <a class="page-link" href="?page={{num}}"> {{num}}</a></li>
+                                         {% else %}
+                                         <li class="page-item">
+                                       
+                                        
+                                         <a class="page-link" href="?page={{num}}"> {{num}}</a></li>
+                                         {% endif %}
+                                         {% endfor %}  
+                                        </ul>
+                                        <center><p>Page {{ a.number }} of {{ a.paginator.num_pages }}.</p></center>
+                                      </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+          <!-- row end -->
+         
+          <!-- row end -->
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:./partials/_footer.html -->
+        <footer class="footer">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Codebook.in. All rights reserved.</span>
+                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block"> Designed and Developed By: <a href="https://www.codebook.in" target="_blank">Codebook</a></span>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- base:js -->
+  <script src="{% static 'police/vendors/js/vendor.bundle.base.js' %}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <script src="{% static 'police/vendors/chart.js/Chart.min.js' %}"></script>
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="{% static 'police/js/off-canvas.js' %}"></script>
+  <script src="{% static 'police/js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'police/js/template.js' %}"></script>
+  <!-- endinject -->
+  <!-- plugin js for this page -->
+  <!-- End plugin js for this page -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'police/js/dashboard.js' %}"></script>
+  <!-- End custom js for this page-->
+</body>
+
+</html>

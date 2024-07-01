@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Blockchain - Police Complaints</title>
+  <!-- base:css -->
+  <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="../../images/favicon.png" />
+</head>
+
+<body>
+  <div class="container-scroller d-flex">
+    <!-- partial:../../partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item sidebar-category">
+
+          <span></span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../admin-index.html">
+            <i class="mdi mdi-view-quilt menu-icon"></i>
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <i class="mdi mdi-account-multiple menu-icon"></i>
+            <span class="menu-title">Politicians Management</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item mdi mdi-account-plus"> <a class="nav-link" href="admin-add-politicians.html">Add
+                  Politicians</a></li>
+              <li class="nav-item mdi mdi-account-convert"> <a class="nav-link"
+                  href="admin-manage-politicians.html">Manage Politicians</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#crime" aria-expanded="false" aria-controls="ui-basic">
+            <i class="mdi mdi-gavel menu-icon"></i>
+            <span class="menu-title">Crimes Management</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="crime">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item mdi mdi-gavel"> <a class="nav-link" href="admin-add-crime-list.html">Add Crimes</a>
+              </li>
+              <li class="nav-item mdi mdi-gavel"> <a class="nav-link" href="admin-update-crimes-list.html">Edit
+                  Crimes</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#analysis" aria-expanded="false" aria-controls="ui-basic">
+            <i class="mdi mdi-chart-areaspline menu-icon"></i>
+            <span class="menu-title">Crimes Analysis</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="analysis">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item mdi mdi-gavel"> <a class="nav-link"
+                  href="admin-political-analysis-list.html">Political Crime Analysis</a></li>
+              <li class="nav-item mdi mdi-gavel"> <a class="nav-link" href="admin-entire-crime-analysis.html">Crime
+                  Analysis</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#feedback" aria-expanded="false" aria-controls="ui-basic">
+            <i class=" mdi mdi-puzzle menu-icon"></i>
+            <span class="menu-title">Feedback</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="feedback">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item mdi mdi-emoticon"> <a class="nav-link" href="admin-sentiment-analysis.html">Sentiment
+                  Analysis</a></li>
+              <li class="nav-item mdi mdi-chart-bar"> <a class="nav-link" href="admin-graph.html">Graph Analysis</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:../../partials/_navbar.html -->
+      <nav class="navbar col-lg-12 col-12 px-0 py-0 py-lg-4 d-flex flex-row">
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+          </button>
+          <div class="navbar-brand-wrapper">
+            <a class="navbar-brand brand-logo" href="#"><img src="../../images/admin.png" alt="logo" /></a>
+            <a class="navbar-brand brand-logo-mini" href="#"><img src="../../images/logo-mini.svg" alt="logo" /></a>
+          </div>
+          <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">Welcome back &nbsp; Admin</h4>
+          <ul class="navbar-nav navbar-nav-right">
+
+
+            <li class="nav-item dropdown mr-2">
+              <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center"
+                id="notificationDropdown" href="#" data-toggle="dropdown">
+                <i class="mdi mdi-export mx-0"></i>
+                <div class="font-weight-normal">
+                  <a href="/home/home-index.html" style="font-weight:bolder ; font-size: medium; color:white;">&nbsp;
+                    LogOut</a>
+                </div>
+              </a>
+
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+            data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h2>Sentiment Analysis</h2>
+
+                  <div class="table-responsive mt-5">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>Id</th>
+                          <th>Profile </th>
+                          <th>Name</th>
+                          <th>Feedback</th>
+                          <th>Sentiment</th>
+                          <th>Emoji</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td><img width="50" height="50" class="rounded-circle" src="/Admin/images/faces/face1.jpg"
+                              alt="#" /></td>
+                          <td>John</td>
+                          <td><textarea rows="3" cols="30"
+                              readonly>“I can tell how hard you’ve worked to be more collaborative during meetings. Yesterday, although you disagreed with David’s idea, you asked some good questions first. Your critiques are more powerful than they used to be. You’ve come a long way, and the team is better for it.”</textarea>
+                          </td>
+                          <td>Positive</td>
+                          <td> <img src="/Admin/images/other/Positive.png" alt="" width="50" height="50"> </td>
+                        </tr>
+
+
+                        <tr>
+                          <td>2</td>
+                          <td><img width="50" height="50" class="rounded-circle" src="/Admin/images/faces/face2.jpg"
+                              alt="#" /></td>
+                          <td>Mary</td>
+                          <td><textarea rows="3" cols="30"
+                              readonly>“I can’t help but notice that this is the third deadline that’s caught up to you this month. I understand this is a fast-paced environment, and I think you’d be more effective if we rethought your time management strategies.”</textarea>
+                          </td>
+                          <td>Neutral</td>
+                          <td><img src="/Admin/images/other/neutral.png" alt="" width="50" height="50"></td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td><img width="50" height="50" class="rounded-circle" src="/Admin/images/faces/face3.jpg"
+                              alt="#" /></td>
+                          <td>Bruce</td>
+                          <td><textarea rows="3" cols="30"
+                              readonly>“I really appreciated how you kept me up to date on X project this week — it helped me coordinate with our stakeholders,  and I’m excited to share that we’re on track to launch. It’s also great to see your process. I’m impressed with the efficiencies you’re introducing.”</textarea>
+                          </td>
+                          <td>Negative</td>
+                          <td><img src="/Admin/images/other/negative.png" alt="" width="50" height="50"></td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td><img width="50" height="50" class="rounded-circle" src="/Admin/images/faces/face4.jpg"
+                              alt="#" /></td>
+                          <td>Miles</td>
+                          <td><textarea rows="3" cols="30"
+                              readonly>“In group setting, I’d like you to make space for others in conversations and meetings. It’s a necessary skill for your career development and helps utilize the full talents of the team. What do you think?”</textarea>
+                          </td>
+                          <td>Very Negative</td>
+                          <td><img src="/Admin/images/other/Very negative.png" alt="" width="50" height="50"></td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td><img width="50" height="50" class="rounded-circle" src="/Admin/images/faces/face5.jpg"
+                              alt="#" /></td>
+                          <td>Tony</td>
+                          <td><textarea rows="3" cols="30"
+                              readonly>“Even though the outcome wasn’t what we wanted, I want to congratulate you on all of the hard work you put in over the past few weeks. If we apply that same effort to our next project, I believe we can win.”</textarea>
+                          </td>
+                          <td>Very Positive</td>
+                          <td> <img src="/Admin/images/other/Very positive.png" alt="" width="50" height="50"> </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
+        <footer class="footer">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Codebook.in. All rights
+                  reserved.</span>
+                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block"> Designed and Developed By:
+                  <a href="https://www.codebook.in" target="_blank">Codebook</a></span>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- base:js -->
+  <script src="../../vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="../../js/off-canvas.js"></script>
+  <script src="../../js/hoverable-collapse.js"></script>
+  <script src="../../js/template.js"></script>
+  <!-- endinject -->
+  <!-- End custom js for this page-->
+</body>
+
+</html>
